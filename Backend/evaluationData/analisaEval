@@ -1,0 +1,10 @@
+import pandas as pd
+
+df = pd.read_csv("evalOutput.csv")
+
+fp_count = df["falsePositive"].sum()
+tp_count = df["truePositive"].sum()
+
+print("False Positive count:", fp_count, f"{(fp_count/len(df))*100:.2f}%")
+print("True Positive count:", tp_count, f"{(tp_count/len(df))*100:.2f}%")
+print(f"Total: {len(df)}")

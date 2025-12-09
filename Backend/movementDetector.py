@@ -143,14 +143,14 @@ class movementDetectionModel:
 
 if __name__ == "__main__":
     videos_path = [
-        r"E:\data datathon\drive-download-20250625T145832Z-1-004\B1_Hari 10.mp4",
+        r"E:\data datathon\RAM video\A4_Hari 10.mp4",
         r"E:\data datathon\drive-download-20250625T145832Z-1-004\B3_Hari 10.mp4",
         r"E:\data datathon\drive-download-20250625T145832Z-1-004\C1_Hari 10.mp4",
         r"E:\data datathon\drive-download-20250625T145832Z-1-004\C4_Hari 10.mp4",
         r"C:\Users\zrota\Videos\A1_Hari 10.mp4"
         ]
 
-    md = movementDetectionModel(videos_path[-1])
+    md = movementDetectionModel(videos_path[0])
         
     print(f"Total selected frames: {len(md.video)}")
     # ✅ Display frames
@@ -162,9 +162,9 @@ if __name__ == "__main__":
 
         cv2.imshow("Selected Frames",result)
 
-        if cv2.waitKey(100) & 0xFF == ord('g'):
+        if cv2.waitKey(10) & 0xFF == ord('g'):
             showGrid = not showGrid
-        if cv2.waitKey(100) & 0xFF == ord('q'):
+        if cv2.waitKey(10) & 0xFF == ord('q'):
             print("🛑 Video stopped by user.")
             break
 

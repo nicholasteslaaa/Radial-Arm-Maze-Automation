@@ -225,10 +225,13 @@ class RAM_Analysis:
         
 if __name__ == '__main__':
     videos_path = [
-        r"E:\data datathon\drive-download-20250625T145832Z-1-004\B1_Hari 10.mp4",
-        r"E:\data datathon\drive-download-20250625T145832Z-1-004\B3_Hari 10.mp4",
-        r"E:\data datathon\drive-download-20250625T145832Z-1-004\C1_Hari 10.mp4",
-        r"E:\data datathon\drive-download-20250625T145832Z-1-004\C4_Hari 10.mp4"
+        r"E:\data datathon\RAM video\A1_Hari 10.mp4",
+        r"E:\data datathon\RAM video\A2_Hari 10.mp4",
+        r"E:\data datathon\RAM video\A4_Hari 10.mp4",
+        r"E:\data datathon\RAM video\B1_Hari 10.mp4",
+        r"E:\data datathon\RAM video\B3_Hari 10.mp4",
+        r"E:\data datathon\RAM video\C1_Hari 10.mp4",
+        r"E:\data datathon\RAM video\C4_Hari 10.mp4",
     ]
 
     overlay_mask = [
@@ -241,5 +244,12 @@ if __name__ == '__main__':
         "0 0.510000 0.526667 0.286250 0.504444 0.291250 0.433333 0.510000 0.466667",
         "0 0.371250 0.186667 0.401250 0.151111 0.527500 0.393333 0.505000 0.457778",
     ]
+    # RA = RAM_Analysis("merged_classification.csv")
+    # RA.process_video(videos_path[0],overlay_mask)
+    # Directory to save frames
+    output_dir = "evaluationData"
+    os.makedirs(output_dir, exist_ok=True)
+    
     RA = RAM_Analysis("merged_classification.csv")
-    RA.process_video(videos_path[0],overlay_mask)
+    for inputVidIdx in range(len(videos_path)):
+        RA.process_video(videos_path[inputVidIdx],overlay_mask)
