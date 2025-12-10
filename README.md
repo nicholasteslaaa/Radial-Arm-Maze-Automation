@@ -38,20 +38,17 @@ Maaf, dataset berupa video mentah yang telah diklasifikasikan:
 ## 📈 Evaluasi Klasifikasi Random Forest
 [**📂 File: evalOutput.csv**](Backend/evaluationData/evalOutput.csv)
 
-**Perhitungan Precision:**  
-$$
+**Perhitungan Precision:**
+
+$$$
 Precision = \frac{TP}{TP+FP}
-$$
-$$
+
 Precision = \frac{1967}{1967+356}
-$$
-$$
+
 Precision = \frac{1967}{2323}
-$$
-$$
+
 Precision =  0.8467
-$$
-<hr>
+$$$
 
 ---
 
