@@ -2,6 +2,7 @@
 
 # Evaluasi Klasifikasi Random Forest
 [File: evalOutput.csv](Backend/evaluationData/evalOutput.csv)
+
 $$
 Precision = \frac{TP}{TP+FP}
 $$
@@ -16,5 +17,5 @@ Precision =  0.8467 * 100 = 84.67%
 $$
 
 # Evaluasi Fungsionalitas
+![Bukti Hasil](https://github.com/user-attachments/assets/dc719e29-d9dd-4bb5-a210-ec0389fd8d0c)
 <img width="1073" height="713" alt="image" src="https://github.com/user-attachments/assets/dc719e29-d9dd-4bb5-a210-ec0389fd8d0c" />
-**Bukti Hasil: https://drive.google.com/drive/folders/1ulK1tZRmqObCbfQGDBuP5aVvy97iIX_f?usp=drive_link**
