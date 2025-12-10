@@ -15,7 +15,7 @@ $$
 $$
 Precision =  0.8467 * 100 = 84.67\%
 $$
----
+<hr>
 
 # Evaluasi Fungsionalitas
 [Bukti Hasil](https://drive.google.com/drive/folders/1ulK1tZRmqObCbfQGDBuP5aVvy97iIX_f?usp=drive_link)
@@ -27,4 +27,4 @@ ML = Machine Learning
 Improvement = 30%
 ![Hasil](https://github.com/user-attachments/assets/dc719e29-d9dd-4bb5-a210-ec0389fd8d0c)
 
----
+<hr>
