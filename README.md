@@ -55,5 +55,7 @@ Maaf, dataset berupa video mentah yang telah diklasifikasikan:
 - 📈 Improvement = 30%
 
 ![Hasil Evaluasi](https://github.com/user-attachments/assets/dc719e29-d9dd-4bb5-a210-ec0389fd8d0c)
+<img width="1775" height="1069" alt="image" src="https://github.com/user-attachments/assets/103fbfe6-bcad-4325-9aab-cc884422215c" />
+
 
 ---
