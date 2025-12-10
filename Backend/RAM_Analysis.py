@@ -155,6 +155,8 @@ class RAM_Analysis:
         md = movementDetectionModel(videos_path,frame_gap=5)
         totalFrame = len(md.video)
         
+        original_filename = os.path.basename(videos_path)
+        
         # --- VideoWriter setup ---
         filename = datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".webm"
         output_dir = os.path.abspath("../public/output")
@@ -176,29 +178,27 @@ class RAM_Analysis:
             if (len(md.box) > 0):
                 curr_frame = cv2.rectangle(curr_frame,(md.box[0],md.box[1]),(md.box[2],md.box[3]),(0,255,255),3)
                 pred, prob = self.rf.predict_box(md.box[0],md.box[1],md.box[2],md.box[3])
-                # print(f"prediction: {pred} | probability: {prob}")
                 label = "Noise" if pred == 0 else "Valid"
                 color = (0,255,0) if label == "Valid" else (0,0,255)
                 
-                # if (label == "Valid"):
-                h,w = curr_frame.shape[:2]
-                inside = self.getIsInsideArm(md.box,overlay_mask,h,w)
-                if (inside != False):
-                    cx = (md.box[0] + md.box[2])/2
-                    cy = (md.box[1] + md.box[3])/2
-                    maskCenter = self.get_polygon_center(inside,w,h)
-                    distance_to_center = md.euclidDistance((cx,cy),(int(maskCenter[0]),int(maskCenter[1])))/100
-                    # print(distance_to_center)
-                    if (lastArm != inside and distance_to_center <= 0.8):
-                        # if (md.euclidDistance((cx,cy),(int(maskCenter[0]),int(maskCenter[1]))) <= 1):
-                        if (inside not in armLog):
-                            armLog[inside] = 1
-                        else:
-                            armLog[inside] += 1
-                        lastArm = inside
-            
-                cv2.putText(curr_frame, f"Prediction: {label}, Status: {inside != False}", (md.box[0],md.box[1]-20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2, cv2.LINE_AA)
-                cv2.putText(curr_frame, f"Is inside: {inside}", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,255,255), 2, cv2.LINE_AA)
+                cv2.putText(curr_frame, f"Prediction: {label} {prob[pred]*100}%", (50,50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2, cv2.LINE_AA)
+                if (label == "Valid"):
+                    h,w = curr_frame.shape[:2]
+                    inside = self.getIsInsideArm(md.box,overlay_mask,h,w)
+                    if (inside != False):
+                        cx = (md.box[0] + md.box[2])/2
+                        cy = (md.box[1] + md.box[3])/2
+                        maskCenter = self.get_polygon_center(inside,w,h)
+                        distance_to_center = md.euclidDistance((cx,cy),(int(maskCenter[0]),int(maskCenter[1])))/100
+                        print(f"Distance: {distance_to_center}")
+                        if (lastArm != inside and distance_to_center <= 0.6):
+                            if (inside not in armLog):
+                                armLog[inside] = 1
+                            else:
+                                armLog[inside] += 1
+                            lastArm = inside
+                cv2.putText(curr_frame, f"Prediction: {label} {prob[pred]*100}%, Status: {inside != False}", (md.box[0],md.box[1]-20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2, cv2.LINE_AA)
+    
                 
             
             right = len(armLog)
@@ -209,6 +209,7 @@ class RAM_Analysis:
                     wrong += i-1
                 
             print(f"right: {right} wrong: {wrong}")
+            cv2.putText(curr_frame, f"{original_filename}", (50,100), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,255,0), 2, cv2.LINE_AA)
             cv2.putText(curr_frame, f"right: {right}", (50,150), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,255,0), 2, cv2.LINE_AA)
             cv2.putText(curr_frame, f"wrong: {wrong}", (50,200), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,0,255), 2, cv2.LINE_AA)
             
