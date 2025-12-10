@@ -1,4 +1,5 @@
 # 🧠 Radial Arm Maze Automation
+<img width="455" height="422" alt="image" src="https://github.com/user-attachments/assets/a0468b46-740d-4e7b-a4a6-45b7070c5190" />
 
 [**⚙️ System: RAM_Analysis.py**](Backend/RAM_Analysis.py)
 
