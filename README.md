@@ -55,8 +55,8 @@ kami hanya bisa memberikan data yang sudah kami extract dari video dataset:
 **Keterangan:**  
 - ✅ GT = Ground Truth  
 - 🤖 ML = Machine Learning  
-![Hasil Evaluasi](https://github.com/user-attachments/assets/dc719e29-d9dd-4bb5-a210-ec0389fd8d0c)
-<img width="1098" height="408" alt="image" src="https://github.com/user-attachments/assets/2e0e065a-7533-4665-b4be-f1fa4224e7b2" />
+<img width="1098" height="408" alt="image" src="https://github.com/user-attachments/assets/86995474-f00a-47f9-be1d-81b0d08bed9c" />
+<img width="1775" height="1069" alt="image" src="https://github.com/user-attachments/assets/103fbfe6-bcad-4325-9aab-cc884422215c" />
 
 
 
